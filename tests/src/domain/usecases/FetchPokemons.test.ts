@@ -1,6 +1,6 @@
 import { mock } from "jest-mock-extended";
 import FetchPokemonsImpl from "@app/data/usecases/FetchPokemonsImpl";
-import { PokemonRepository } from "@app/domain/repository";
+import { PokemonRepository } from "@app/data/protocols/repository";
 import { makePokemonMock } from "../../../mocks/entities/PokemonMock";
 
 const makeSut = () => {
