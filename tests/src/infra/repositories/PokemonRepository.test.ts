@@ -1,10 +1,9 @@
-import { DataSourceError } from "@app/domain/errors/DataSourceError";
-import { UnexpectedError } from "@app/domain/errors/UnexpectedError";
-import { PokemonMapper } from "@app/infra/mappers";
-import { HttpClient } from "@data/protocols/http";
-import { PokemonRepositoryImpl } from "@infra/repositories";
+import { DataSourceError } from "@/domain/errors/DataSourceError";
+import { PokemonMapper } from "@/infra/mappers";
+import { HttpClient } from "@/data/protocols/http";
+import { PokemonRepositoryImpl } from "@/infra/repositories";
 import { mock } from "jest-mock-extended";
-import { makePokemonResponseMock } from "../../../mocks/data/PokemonResponseMock";
+import { makePokemonResponseMock } from "@/tests/mocks/data/PokemonResponseMock";
 
 const makeSut = () => {
   const httpClientMock = mock<HttpClient>();

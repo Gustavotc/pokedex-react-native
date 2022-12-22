@@ -1,9 +1,9 @@
-import { Pokemon } from "@app/domain/entities";
-import { PokemonRepository } from "@app/data/protocols/repository";
-import { HttpClient, HttpStatusCode } from "@app/data/protocols/http";
-import { PokemonResponse } from "@app/data/models";
+import { Pokemon } from "@/domain/entities";
+import { PokemonRepository } from "@/data/protocols/repository";
+import { HttpClient, HttpStatusCode } from "@/data/protocols/http";
+import { PokemonResponse } from "@/data/models";
 import { PokemonMapper } from "../mappers";
-import { DataSourceError } from "@app/domain/errors/DataSourceError";
+import { DataSourceError } from "@/domain/errors/DataSourceError";
 
 export class PokemonRepositoryImpl implements PokemonRepository {
   constructor(

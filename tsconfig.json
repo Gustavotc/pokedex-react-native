@@ -1,16 +1,14 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "target": "es6",
     "strict": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "rootDirs": ["src", "tests"],
     "paths": {
-      "@app/*": ["src/*"],
-      "@assets/*": ["src/assets/*"],
-      "@data/*": ["src/data/*"],
-      "@domain/*":["src/domain/*"],
-      "@infra/*": ["src/infra/*"],
-      "@main/*":[ "src/main/*"],
-      "@presentation/*": ["src/presentation/*"],
-    }
-  }
+      "@/*": ["*"],
+      "@/tests/*": ["../tests/*"]
+    },
+  },
+  "include": ["src", "tests"],
 }

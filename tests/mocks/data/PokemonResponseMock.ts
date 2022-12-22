@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { PokemonResponse } from "@data/models";
+import { PokemonResponse } from "@/data/models";
 
 export const makePokemonResponseMock = (): PokemonResponse => {
   return {

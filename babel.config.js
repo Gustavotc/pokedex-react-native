@@ -6,14 +6,10 @@ module.exports = function (api) {
       [
         "module-resolver",
         {
+          root: ".",
           alias: {
-            "@app": "./src",
-            "@assets": "./assets",
-            "@data": "./src/data",
-            "@domain": "./src/domain",
-            "@infra": "./src/infra",
-            "@main": "./src/main",
-            "@presentation": "./src/presentation",
+            "@/": "./src",
+            "@/tests/": "./tests",
           },
         },
       ],
