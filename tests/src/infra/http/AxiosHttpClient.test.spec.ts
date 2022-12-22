@@ -1,10 +1,10 @@
-import { makeHttpRequestMock } from '@/../tests/mocks/data/http/HttpMock';
+import { AxiosError } from 'axios';
+import { makeHttpRequestMock } from '@/tests/mocks/data/http/HttpMock';
 import AxiosHttpClient from '@/infra/http/AxiosHttpClient';
 import {
   makeAxiosMock,
   makeHttpResponseMock,
 } from '@/tests/mocks/infra/AxiosMock';
-import { AxiosError } from 'axios';
 
 jest.mock('axios');
 

@@ -1,8 +1,8 @@
+import { mock } from 'jest-mock-extended';
 import { DataSourceError } from '@/domain/errors/DataSourceError';
 import { PokemonMapper } from '@/infra/mappers';
 import { HttpClient } from '@/data/protocols/http';
 import { PokemonRepositoryImpl } from '@/infra/repositories';
-import { mock } from 'jest-mock-extended';
 import { makePokemonResponseMock } from '@/tests/mocks/data/PokemonResponseMock';
 
 const makeSut = () => {

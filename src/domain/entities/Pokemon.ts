@@ -1,7 +1,7 @@
 export type Pokemon = {
   id: number;
-  name: String;
-  imageUrl: String;
+  name: string;
+  imageUrl: string;
   height: number;
   weight: number;
   stats: string;
