@@ -1,1 +1,1 @@
-export * from "./FetchPokemonsImpl";
+export * from './FetchPokemonsImpl';

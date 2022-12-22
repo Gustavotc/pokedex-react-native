@@ -1,12 +1,12 @@
-import { makeHttpRequestMock } from "@/../tests/mocks/data/http/HttpMock";
-import AxiosHttpClient from "@/infra/http/AxiosHttpClient";
+import { makeHttpRequestMock } from '@/../tests/mocks/data/http/HttpMock';
+import AxiosHttpClient from '@/infra/http/AxiosHttpClient';
 import {
   makeAxiosMock,
   makeHttpResponseMock,
-} from "@/tests/mocks/infra/AxiosMock";
-import { AxiosError } from "axios";
+} from '@/tests/mocks/infra/AxiosMock';
+import { AxiosError } from 'axios';
 
-jest.mock("axios");
+jest.mock('axios');
 
 const makeSut = () => {
   const sut = new AxiosHttpClient();
@@ -17,8 +17,8 @@ const makeSut = () => {
   };
 };
 
-describe("AxiosHttpClient", () => {
-  it("Should call axios with correct values", async () => {
+describe('AxiosHttpClient', () => {
+  it('Should call axios with correct values', async () => {
     const request = makeHttpRequestMock();
     const { sut, mockedAxios } = makeSut();
 
@@ -32,7 +32,7 @@ describe("AxiosHttpClient", () => {
     });
   });
 
-  it("Should return correct response", async () => {
+  it('Should return correct response', async () => {
     const { sut, mockedAxios } = makeSut();
 
     const httpResponse = await sut.request(makeHttpRequestMock());
@@ -44,7 +44,7 @@ describe("AxiosHttpClient", () => {
     });
   });
 
-  test("Should return default error if axios fails", () => {
+  test('Should return default error if axios fails', () => {
     const { sut, mockedAxios } = makeSut();
     mockedAxios.request.mockRejectedValueOnce({
       response: makeHttpResponseMock(),
@@ -55,13 +55,13 @@ describe("AxiosHttpClient", () => {
     expect(promise).rejects.toEqual(mockedAxios.request.mock.results[0].value);
   });
 
-  test("Should return body null and statusCode 0 when status code is not 200", async () => {
+  test('Should return body null and statusCode 0 when status code is not 200', async () => {
     const { sut, mockedAxios } = makeSut();
     const axiosError = new AxiosError();
     axiosError.response = {
       data: null,
       status: 401,
-      statusText: "Unauthorized",
+      statusText: 'Unauthorized',
       headers: {},
       config: {},
     };
@@ -73,7 +73,7 @@ describe("AxiosHttpClient", () => {
     expect(response).toEqual({ statusCode: 0, body: null });
   });
 
-  test("Should return body message and statusCode 0 when server does not answer", async () => {
+  test('Should return body message and statusCode 0 when server does not answer', async () => {
     const { sut, mockedAxios } = makeSut();
     const axiosError = new AxiosError();
 
@@ -82,6 +82,6 @@ describe("AxiosHttpClient", () => {
     });
 
     const response = await sut.request(makeHttpRequestMock());
-    expect(response).toEqual({ statusCode: 0, body: "Request not answered" });
+    expect(response).toEqual({ statusCode: 0, body: 'Request not answered' });
   });
 });

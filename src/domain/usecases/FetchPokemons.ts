@@ -1,4 +1,4 @@
-import { Pokemon } from "../entities";
+import { Pokemon } from '../entities';
 
 export interface FetchPokemons {
   execute: () => Promise<Pokemon[]>;

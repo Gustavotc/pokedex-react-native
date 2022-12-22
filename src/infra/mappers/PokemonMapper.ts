@@ -1,6 +1,6 @@
-import { PokemonResponse } from "@/data/models";
-import { Pokemon } from "@/domain/entities";
-import { DomainMapper } from ".";
+import { PokemonResponse } from '@/data/models';
+import { Pokemon } from '@/domain/entities';
+import { DomainMapper } from '.';
 
 export class PokemonMapper implements DomainMapper<Pokemon> {
   toDomain(json: PokemonResponse): Pokemon {

@@ -1,6 +1,6 @@
-import { HttpClient, HttpRequest, HttpResponse } from "@/data/protocols/http";
+import { HttpClient, HttpRequest, HttpResponse } from '@/data/protocols/http';
 
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from 'axios';
 
 export default class AxiosHttpClient implements HttpClient {
   async request(data: HttpRequest): Promise<HttpResponse<any>> {
@@ -17,13 +17,13 @@ export default class AxiosHttpClient implements HttpClient {
           body: response.data,
         };
       })
-      .catch((error) => {
+      .catch(error => {
         let errorResponse: HttpResponse = { statusCode: 0, body: null };
         if (axios.isAxiosError(error) && error.response) {
           errorResponse.statusCode = error.response.status;
           errorResponse.body = error.response.data;
         } else if (error.request) {
-          errorResponse.body = "Request not answered";
+          errorResponse.body = 'Request not answered';
         }
 
         return {

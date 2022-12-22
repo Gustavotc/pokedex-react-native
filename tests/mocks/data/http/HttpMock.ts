@@ -1,15 +1,15 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
 import {
   HttpRequest,
   HttpResponse,
   HttpStatusCode,
   HttpClient,
-} from "@/data/protocols/http";
+} from '@/data/protocols/http';
 
 export const makeHttpRequestMock = (): HttpRequest => ({
   url: faker.internet.url(),
-  method: faker.helpers.arrayElement(["get", "post", "put", "delete"]),
+  method: faker.helpers.arrayElement(['get', 'post', 'put', 'delete']),
   body: faker.datatype.json(),
   headers: faker.datatype.json(),
 });

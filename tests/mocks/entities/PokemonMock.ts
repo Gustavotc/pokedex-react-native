@@ -1,5 +1,5 @@
-import { faker } from "@faker-js/faker";
-import { Pokemon } from "../../../src/domain/entities";
+import { faker } from '@faker-js/faker';
+import { Pokemon } from '../../../src/domain/entities';
 
 export const makePokemonMock = (): Pokemon => {
   return {

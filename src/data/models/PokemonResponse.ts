@@ -16,6 +16,6 @@ export type PokemonResponse = {
       stat: {
         name: string;
       };
-    }
+    },
   ];
 };

@@ -1,7 +1,7 @@
-import { mock } from "jest-mock-extended";
-import FetchPokemonsImpl from "@/data/usecases/FetchPokemonsImpl";
-import { PokemonRepository } from "@/data/protocols/repository";
-import { makePokemonMock } from "@/tests/mocks/entities/PokemonMock";
+import { mock } from 'jest-mock-extended';
+import FetchPokemonsImpl from '@/data/usecases/FetchPokemonsImpl';
+import { PokemonRepository } from '@/data/protocols/repository';
+import { makePokemonMock } from '@/tests/mocks/entities/PokemonMock';
 
 const makeSut = () => {
   const repositoryMock = mock<PokemonRepository>();
@@ -12,8 +12,8 @@ const makeSut = () => {
   };
 };
 
-describe("Fetch Pokemon usecase", () => {
-  it("Should return an array of Pokemons", async () => {
+describe('Fetch Pokemon usecase', () => {
+  it('Should return an array of Pokemons', async () => {
     const { sut, repositoryMock } = makeSut();
     const pokemonsMock = [
       makePokemonMock(),
