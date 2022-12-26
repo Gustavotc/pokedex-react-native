@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "pokedex",
+    "entryPoint": "./src/App.tsx",
     "slug": "pokedex",
     "version": "1.0.0",
     "orientation": "portrait",
