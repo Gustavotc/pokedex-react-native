@@ -1,6 +1,6 @@
 export class DataSourceError extends Error {
   constructor() {
-    super('Falha na conexão com a internet, tente novamente');
+    super('Connection error, please try again!');
     this.name = 'DataSourceError';
   }
 }

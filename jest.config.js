@@ -7,7 +7,7 @@ module.exports = {
     '!**/*.d.ts',
   ],
   coverageDirectory: 'coverage',
-  // setupFilesAfterEnv: ["<rootDir>/src/main/config/jest-setup.ts"],
+  // setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   moduleNameMapper: {
     '@/tests/(.*)': '<rootDir>/tests/$1',

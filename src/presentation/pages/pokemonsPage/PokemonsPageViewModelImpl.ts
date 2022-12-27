@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Pokemon } from '@/domain/entities';
 import { PokemonsPageViewModel } from '@/data/protocols/viewModel';
 import { FetchPokemons } from '@/domain/usecases/FetchPokemons';
+import { DataSourceError } from '@/domain/errors/DataSourceError';
 
 export default class PokemonsPageViewModelImpl
   implements PokemonsPageViewModel
@@ -20,7 +21,11 @@ export default class PokemonsPageViewModelImpl
           setPokemons(newPokemons);
         })
         .catch(exception => {
-          console.log(exception);
+          if (exception instanceof DataSourceError) {
+            setError(exception.message);
+          } else {
+            setError('Something went wrong, please try again');
+          }
         });
     };
 

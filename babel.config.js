@@ -18,8 +18,8 @@ module.exports = api => {
             '.ios.tsx',
           ],
           alias: {
+            '@/tests': './tests',
             '@': './src',
-            '@/tests/': './tests',
           },
         },
       ],
