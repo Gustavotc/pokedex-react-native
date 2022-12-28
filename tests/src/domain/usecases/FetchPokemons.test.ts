@@ -23,7 +23,7 @@ describe('Fetch Pokemon usecase', () => {
 
     repositoryMock.getById.mockResolvedValue(makePokemonMock());
 
-    const response = await sut.execute();
+    const response = await sut.execute(0);
 
     expect(response.length).toBe(10);
   });

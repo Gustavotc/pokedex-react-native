@@ -15,11 +15,11 @@ export class PokemonRepositoryImpl implements PokemonRepository {
     private readonly pokemonMapper: PokemonMapper,
   ) {}
 
-  async get(): Promise<PokemonsResponse[]> {
+  async get(offset: number): Promise<PokemonsResponse[]> {
     return this.httpClient
       .request<PokeApiBaseResponse<PokemonsResponse>>({
         method: 'get',
-        url: 'https://pokeapi.co/api/v2/pokemon/',
+        url: `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offset}`,
       })
       .then(response => {
         if (response.statusCode === HttpStatusCode.ok) {

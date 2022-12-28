@@ -5,11 +5,11 @@ import { FetchPokemons } from '@/domain/usecases/FetchPokemons';
 export default class FetchPokemonsImpl implements FetchPokemons {
   constructor(private readonly repository: PokemonRepository) {}
 
-  async execute(): Promise<Pokemon[]> {
+  async execute(offset: number): Promise<Pokemon[]> {
     const pokemons: Pokemon[] = [];
     const pendingPromises: Promise<Pokemon | null | void>[] = [];
 
-    const pokemonsToFetch = await this.repository.get();
+    const pokemonsToFetch = await this.repository.get(offset);
 
     pokemonsToFetch.forEach(pokemonToFetch => {
       pendingPromises.push(
@@ -20,6 +20,6 @@ export default class FetchPokemonsImpl implements FetchPokemons {
     });
 
     await Promise.all(pendingPromises);
-    return pokemons;
+    return pokemons.sort((a, b) => a.id - b.id);
   }
 }

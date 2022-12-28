@@ -14,7 +14,7 @@ export const makeHttpRequestMock = (): HttpRequest => ({
   headers: faker.datatype.json(),
 });
 
-export class HttpClientSpy<R = any> implements HttpClient<R> {
+export class HttpClientSpy implements HttpClient {
   url?: string;
 
   method?: string;
@@ -23,11 +23,11 @@ export class HttpClientSpy<R = any> implements HttpClient<R> {
 
   headers?: any;
 
-  response: HttpResponse<R> = {
+  response: HttpResponse = {
     statusCode: HttpStatusCode.ok,
   };
 
-  async request(data: HttpRequest): Promise<HttpResponse<R>> {
+  async request<R = any>(data: HttpRequest): Promise<HttpResponse<R>> {
     this.url = data.url;
     this.method = data.method;
     this.body = data.body;

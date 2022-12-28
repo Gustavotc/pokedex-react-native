@@ -12,12 +12,14 @@ export default class PokemonsPageViewModelImpl
   useViewModel() {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
     const fetchPokemons = async () => {
-      return this.fetchPokemons
-        .execute()
+      setLoading(true);
+      this.fetchPokemons
+        .execute(pokemons.length)
         .then(pokemonsResponse => {
-          const newPokemons = pokemons.concat(pokemons, pokemonsResponse);
+          const newPokemons = pokemons.concat(pokemonsResponse);
           setPokemons(newPokemons);
         })
         .catch(exception => {
@@ -26,12 +28,14 @@ export default class PokemonsPageViewModelImpl
           } else {
             setError('Something went wrong, please try again');
           }
-        });
+        })
+        .finally(() => setLoading(false));
     };
 
     return {
       pokemons,
       error,
+      loading,
       fetchPokemons,
     };
   }

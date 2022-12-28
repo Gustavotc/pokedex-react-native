@@ -31,7 +31,7 @@ describe('Pokemon repository', () => {
 
     httpClientMock.request.mockResolvedValueOnce(responseMock);
 
-    const response = await sut.get();
+    const response = await sut.get(0);
 
     expect(response.length).toBe(10);
     expect(response).toEqual(pokemonsResponseMock.results);
@@ -45,7 +45,7 @@ describe('Pokemon repository', () => {
       body: null,
     });
 
-    const response = await sut.get();
+    const response = await sut.get(0);
 
     expect(response).toStrictEqual([]);
   });
@@ -58,7 +58,7 @@ describe('Pokemon repository', () => {
       body: null,
     });
 
-    const response = await sut.get();
+    const response = await sut.get(0);
 
     expect(response).toStrictEqual([]);
   });
@@ -68,7 +68,7 @@ describe('Pokemon repository', () => {
 
     httpClientMock.request.mockRejectedValueOnce(null);
 
-    await expect(sut.get()).rejects.toBeInstanceOf(DataSourceError);
+    await expect(sut.get(0)).rejects.toBeInstanceOf(DataSourceError);
   });
 
   it('Should return all data about a specific pokemon on getById success', async () => {
