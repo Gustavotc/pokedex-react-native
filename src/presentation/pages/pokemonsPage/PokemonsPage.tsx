@@ -18,8 +18,12 @@ import {
   PokemonName,
   NameRow,
   IndexText,
+  StatusContainer,
+  TypeText,
 } from './Styles';
 import { Pokemon } from '@/domain/entities';
+import { PokemonTypeColorEnum } from '@/main/utils/PokemonTypeEnum';
+import TypeIcon from '@/presentation/components/typeIcon/TypeIcon';
 
 type Props = {
   viewModel: PokemonsPageViewModel;
@@ -43,7 +47,7 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
 
   const renderItem: ListRenderItem<Pokemon> = ({ item }) => {
     return (
-      <CardContainer>
+      <CardContainer color={PokemonTypeColorEnum[item.types[0]]}>
         <NameRow>
           <PokemonName>{item.name}</PokemonName>
           <IndexText>{`#${item.id}`}</IndexText>
@@ -60,6 +64,12 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
           width={70}
           style={{ position: 'absolute', bottom: 8, right: 4 }}
         />
+        {item.types.map(type => (
+          <StatusContainer key={type}>
+            <TypeText>{type}</TypeText>
+            <TypeIcon type={type} />
+          </StatusContainer>
+        ))}
       </CardContainer>
     );
   };

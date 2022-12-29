@@ -16,6 +16,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "react/require-default-props": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "class-methods-use-this": "off",
     "no-useless-constructor": "off",

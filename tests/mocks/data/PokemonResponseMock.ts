@@ -16,9 +16,20 @@ export const makePokemonResponseMock = (): PokemonResponse => {
     },
     stats: [
       {
-        base_state: faker.datatype.number(),
+        base_stat: faker.datatype.number(),
+        effort: faker.datatype.number(),
         stat: {
           name: faker.word.adjective(),
+          url: faker.internet.url(),
+        },
+      },
+    ],
+    types: [
+      {
+        slot: faker.datatype.number(),
+        type: {
+          name: faker.name.firstName(),
+          url: faker.internet.url(),
         },
       },
     ],

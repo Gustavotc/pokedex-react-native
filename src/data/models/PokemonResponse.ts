@@ -1,3 +1,20 @@
+export type PokemonStatsJson = {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+}[];
+
+export type PokemonTypesJson = {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+}[];
+
 export type PokemonResponse = {
   id: number;
   name: string;
@@ -10,12 +27,6 @@ export type PokemonResponse = {
       };
     };
   };
-  stats: [
-    {
-      base_state: number;
-      stat: {
-        name: string;
-      };
-    },
-  ];
+  stats: PokemonStatsJson;
+  types: PokemonTypesJson;
 };
