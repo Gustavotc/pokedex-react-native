@@ -6,5 +6,6 @@ export type PokemonsPageViewModel = {
     error: string | null;
     loading: boolean;
     fetchPokemons: () => Promise<void>;
+    handleSearchTextChange: (text: string) => void;
   };
 };

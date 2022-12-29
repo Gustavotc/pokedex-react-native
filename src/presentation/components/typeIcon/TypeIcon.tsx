@@ -28,7 +28,7 @@ type Props = {
   containerSize?: number;
 };
 
-const TypeIcon: React.FC<Props> = ({
+export const TypeIcon: React.FC<Props> = ({
   type,
   iconSize = 8,
   containerSize = 12,
@@ -91,5 +91,3 @@ const TypeIcon: React.FC<Props> = ({
     </View>
   );
 };
-
-export default TypeIcon;

@@ -23,14 +23,15 @@ import {
 } from './Styles';
 import { Pokemon } from '@/domain/entities';
 import { PokemonTypeColorEnum } from '@/main/utils/PokemonTypeEnum';
-import TypeIcon from '@/presentation/components/typeIcon/TypeIcon';
+import { TypeIcon, SearchBar } from '@/presentation/components';
 
 type Props = {
   viewModel: PokemonsPageViewModel;
 };
 
 const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
-  const { pokemons, error, loading, fetchPokemons } = viewModel.useViewModel();
+  const { pokemons, error, loading, fetchPokemons, handleSearchTextChange } =
+    viewModel.useViewModel();
 
   useEffect(() => {
     fetchPokemons();
@@ -76,8 +77,13 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
 
   return (
     <Container>
-      <TitleText>Pokedex</TitleText>
+      <TitleText>Pokédex</TitleText>
+      <SearchBar
+        placeholder="What Pokémon are you looking for?"
+        onChangeText={handleSearchTextChange}
+      />
       <FlatList
+        style={{ marginTop: 16 }}
         data={pokemons}
         horizontal={false}
         columnWrapperStyle={{ justifyContent: 'space-between' }}

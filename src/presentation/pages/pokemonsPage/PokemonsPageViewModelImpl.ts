@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Pokemon } from '@/domain/entities';
 import { PokemonsPageViewModel } from '@/data/protocols/viewModel';
 import { FetchPokemons } from '@/domain/usecases/FetchPokemons';
@@ -13,6 +13,8 @@ export default class PokemonsPageViewModelImpl
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+
+    const interval = useRef<NodeJS.Timer | null>(null);
 
     const fetchPokemons = async () => {
       setLoading(true);
@@ -32,11 +34,22 @@ export default class PokemonsPageViewModelImpl
         .finally(() => setLoading(false));
     };
 
+    const handleSearchTextChange = (text: string) => {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
+      interval.current = setTimeout(() => {
+        if (text && text.length > 0) console.log(`search: ${text}`);
+        interval.current = null;
+      }, 800);
+    };
+
     return {
       pokemons,
       error,
       loading,
       fetchPokemons,
+      handleSearchTextChange,
     };
   }
 }
