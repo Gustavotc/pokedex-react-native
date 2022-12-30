@@ -20,13 +20,13 @@ export const PokemonName = styled.Text`
 
 export const NameRow = styled.View`
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 `;
 
 export const IndexText = styled.Text`
   font-size: 16px;
   color: #f3f3f390;
+  margin-left: 8px;
 `;
 
 export const StatusContainer = styled.View`

@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
 import { PokemonRepository } from '@/data/protocols/repository';
-import FetchPokemonsImpl from '@/data/usecases/FetchPokemonsImpl';
+import { FetchPokemonsImpl } from '@/data/usecases/FetchPokemonsImpl';
 import { makePokemonMock } from '@/tests/mocks/entities/PokemonMock';
 import { makePokemonsResponseMock } from '@/../tests/mocks/data/PokemonsResponseMock';
 

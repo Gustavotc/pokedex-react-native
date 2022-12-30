@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1672100868389" clover="3.2.0">
-  <project timestamp="1672100868389" name="All files">
-    <metrics statements="51" coveredstatements="32" conditionals="16" coveredconditionals="9" methods="25" coveredmethods="17" elements="92" coveredelements="58" complexity="0" loc="51" ncloc="51" packages="13" files="18" classes="18"/>
+<coverage generated="1672441410843" clover="3.2.0">
+  <project timestamp="1672441410843" name="All files">
+    <metrics statements="159" coveredstatements="92" conditionals="78" coveredconditionals="18" methods="57" coveredmethods="35" elements="294" coveredelements="145" complexity="0" loc="159" ncloc="159" packages="25" files="38" classes="38"/>
     <package name="src">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="App.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\App.tsx">
@@ -33,26 +33,30 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
-    <package name="src.data.protocols.viewModel">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="PokemonsPageViewModel.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\data\protocols\viewModel\PokemonsPageViewModel.ts">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
-    </package>
     <package name="src.data.usecases">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
       <file name="FetchPokemonsImpl.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\data\usecases\FetchPokemonsImpl.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="17" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+      </file>
+      <file name="SearchPokemonImpl.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\data\usecases\SearchPokemonImpl.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="9" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.domain.entities">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Pokemon.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\domain\entities\Pokemon.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="PokemonType.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\domain\entities\PokemonType.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
@@ -74,76 +78,276 @@
       <file name="FetchPokemons.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\domain\usecases\FetchPokemons.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
+      <file name="SearchPokemon.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\domain\usecases\SearchPokemon.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
     </package>
     <package name="src.infra.http">
-      <metrics statements="9" coveredstatements="7" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
       <file name="AxiosHttpClient.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\http\AxiosHttpClient.ts">
-        <metrics statements="9" coveredstatements="7" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="6" count="5" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="20" count="3" type="stmt"/>
-        <line num="21" count="3" type="cond" truecount="2" falsecount="2"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
+        <line num="22" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.infra.mappers">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
       <file name="DomainMapper.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\mappers\DomainMapper.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="PokemonMapper.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\mappers\PokemonMapper.ts">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.infra.repositories">
-      <metrics statements="11" coveredstatements="5" conditionals="10" coveredconditionals="5" methods="7" coveredmethods="4"/>
+      <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
       <file name="PokemonRepositoryImpl.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\repositories\PokemonRepositoryImpl.ts">
-        <metrics statements="11" coveredstatements="5" conditionals="10" coveredconditionals="5" methods="7" coveredmethods="4"/>
+        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
         <line num="19" count="4" type="stmt"/>
         <line num="25" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="26" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.main.factories.http">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="AxiosHttpClientFactory.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\main\factories\http\AxiosHttpClientFactory.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.main.factories.pages">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="PokemonsPageFactory.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\main\factories\pages\PokemonsPageFactory.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.main.factories.repositories">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="PokemonRepositoryFactory.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\main\factories\repositories\PokemonRepositoryFactory.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.main.factories.usecases">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="FetchPokemonsFactory.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\main\factories\usecases\FetchPokemonsFactory.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+      </file>
+      <file name="SearchPokemonFactory.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\main\factories\usecases\SearchPokemonFactory.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.main.factories.viewModels">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="PokemonsPageViewModelFactory.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\main\factories\viewModels\PokemonsPageViewModelFactory.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.main.utils">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="PokemonTypeEnum.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\main\utils\PokemonTypeEnum.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.presentation.components.searchBar">
+      <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="SearchBar.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\components\searchBar\SearchBar.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+      <file name="Styles.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\components\searchBar\Styles.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.presentation.components.typeIcon">
+      <metrics statements="23" coveredstatements="1" conditionals="21" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="TypeIcon.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\components\typeIcon\TypeIcon.tsx">
+        <metrics statements="23" coveredstatements="1" conditionals="21" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="19"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.presentation.pages.pokemonsPage">
-      <metrics statements="17" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="5"/>
+      <metrics statements="53" coveredstatements="22" conditionals="36" coveredconditionals="1" methods="16" coveredmethods="6"/>
       <file name="PokemonsPage.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\PokemonsPage.tsx">
-        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
+        <metrics statements="12" coveredstatements="1" conditionals="18" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
       </file>
       <file name="PokemonsPageViewModelImpl.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\PokemonsPageViewModelImpl.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <line num="12" count="5" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="28" count="5" type="stmt"/>
+        <metrics statements="39" coveredstatements="19" conditionals="18" coveredconditionals="1" methods="11" coveredmethods="6"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="19" count="9" type="stmt"/>
+        <line num="20" count="9" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="22" count="9" type="stmt"/>
+        <line num="24" count="9" type="stmt"/>
+        <line num="26" count="9" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="9" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="71" count="9" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="80" count="9" type="stmt"/>
       </file>
       <file name="Styles.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\Styles.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.presentation.pages.pokemonsPage.components">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\index.tsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.presentation.pages.pokemonsPage.components.largePokemonCard">
+      <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="LargePokemonCard.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\largePokemonCard\LargePokemonCard.tsx">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+      <file name="Styles.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\largePokemonCard\Styles.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.presentation.pages.pokemonsPage.components.noPokemonFound">
+      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="NoPokemonFound.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\noPokemonFound\NoPokemonFound.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+      <file name="Styles.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\noPokemonFound\Styles.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.presentation.pages.pokemonsPage.components.pokemonCard">
+      <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="PokemonCard.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\pokemonCard\PokemonCard.tsx">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+      <file name="Styles.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\pages\pokemonsPage\components\pokemonCard\Styles.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.presentation.viewModel">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="PokemonsPageViewModel.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\presentation\viewModel\PokemonsPageViewModel.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
   </project>

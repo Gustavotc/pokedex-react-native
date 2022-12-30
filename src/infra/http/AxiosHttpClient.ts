@@ -18,6 +18,7 @@ export default class AxiosHttpClient implements HttpClient {
       })
       .catch(error => {
         const errorResponse: HttpResponse = { statusCode: 0, body: null };
+        // console.log(error.response);
         if (axios.isAxiosError(error) && error.response) {
           errorResponse.statusCode = error.response.status;
           errorResponse.body = error.response.data;
