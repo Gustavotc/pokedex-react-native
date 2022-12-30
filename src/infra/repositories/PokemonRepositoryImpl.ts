@@ -37,7 +37,7 @@ export class PokemonRepositoryImpl implements PokemonRepository {
   async getById(id: number | string): Promise<Pokemon | null> {
     return this.httpClient
       .request<PokemonResponse>({
-        url: `https://pokeapi.co/api/v2/pokemon/${id.toString()}`,
+        url: `https://pokeapi.co/api/v2/pokemon/${id.toString().toLowerCase()}`,
         method: 'get',
       })
       .then(response => {

@@ -1,6 +1,9 @@
 import PokemonsPageViewModelImpl from '@/presentation/pages/pokemonsPage/PokemonsPageViewModelImpl';
-import { makeFetchPokemons } from '../usecases';
+import { makeFetchPokemons, makeSearchPokemon } from '../usecases';
 
 export const makePokemonsPageViewModel = () => {
-  return new PokemonsPageViewModelImpl(makeFetchPokemons());
+  return new PokemonsPageViewModelImpl(
+    makeFetchPokemons(),
+    makeSearchPokemon(),
+  );
 };

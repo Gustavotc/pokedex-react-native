@@ -1,4 +1,4 @@
-import FetchPokemonsImpl from '@/data/usecases/FetchPokemonsImpl';
+import { FetchPokemonsImpl } from '@/data/usecases/FetchPokemonsImpl';
 import { makePokemonRepository } from '../repositories/PokemonRepositoryFactory';
 
 export const makeFetchPokemons = () => {

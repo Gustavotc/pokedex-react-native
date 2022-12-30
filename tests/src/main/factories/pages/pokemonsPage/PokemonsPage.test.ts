@@ -1,4 +1,4 @@
-import { PokemonsPageViewModel } from '@/data/protocols/viewModel';
+import { PokemonsPageViewModel } from '@/presentation/viewModel';
 import { makePokemonsPage } from '@/main/factories/pages/PokemonsPageFactory';
 import PokemonsPage from '@/presentation/pages/pokemonsPage/PokemonsPage';
 

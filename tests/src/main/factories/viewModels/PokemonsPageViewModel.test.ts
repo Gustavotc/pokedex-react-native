@@ -1,4 +1,4 @@
-import { PokemonsPageViewModel } from '@/data/protocols/viewModel';
+import { PokemonsPageViewModel } from '@/presentation/viewModel';
 import { makePokemonsPageViewModel } from '@/main/factories/viewModels/PokemonsPageViewModelFactory';
 
 describe('PokemonsPageViewModelFactory', () => {
