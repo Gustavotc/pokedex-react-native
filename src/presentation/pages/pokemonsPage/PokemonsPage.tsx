@@ -11,7 +11,7 @@ import { PokemonsPageViewModel } from '@/presentation/viewModel';
 import { Container, TitleText } from './Styles';
 import { Pokemon } from '@/domain/entities';
 import { SearchBar } from '@/presentation/components';
-import { PokemonCard, NoPokemonFound } from './components';
+import { PokemonCard, NoPokemonFound, LargePokemonCard } from './components';
 
 type Props = {
   viewModel: PokemonsPageViewModel;
@@ -80,7 +80,9 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
         <ActivityIndicator size="large" style={{ marginTop: 32 }} />
       )}
 
-      {isSearching && searchResult && <PokemonCard pokemon={searchResult} />}
+      {isSearching && searchResult && (
+        <LargePokemonCard pokemon={searchResult} />
+      )}
 
       {isSearching && !searchResult && !loading && <NoPokemonFound />}
     </Container>
