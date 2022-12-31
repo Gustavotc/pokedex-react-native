@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { TextInput } from 'react-native';
+import Toast from 'react-native-root-toast';
 import { Pokemon } from '@/domain/entities';
 import { PokemonsPageViewModel } from '@/presentation/viewModel';
 import { FetchPokemons, SearchPokemon } from '@/domain/usecases';
@@ -15,7 +16,6 @@ export default class PokemonsPageViewModelImpl
 
   useViewModel() {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-    const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
     const searchResult = useRef<Pokemon | null>(null);
@@ -25,9 +25,9 @@ export default class PokemonsPageViewModelImpl
 
     const handleException = (exception: any) => {
       if (exception instanceof DataSourceError) {
-        setError(exception.message);
+        Toast.show(exception.message);
       } else {
-        setError('Something went wrong, please try again');
+        Toast.show('Something went wrong, please try again');
       }
     };
 
@@ -79,7 +79,6 @@ export default class PokemonsPageViewModelImpl
 
     return {
       pokemons,
-      error,
       loading,
       searchResult: searchResult.current,
       searchInputRef,

@@ -20,7 +20,6 @@ type Props = {
 const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
   const {
     pokemons,
-    error,
     loading,
     searchResult,
     searchInputRef,

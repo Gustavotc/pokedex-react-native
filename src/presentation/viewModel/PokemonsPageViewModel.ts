@@ -5,7 +5,6 @@ import { Pokemon } from '@/domain/entities';
 export type PokemonsPageViewModel = {
   useViewModel(): {
     pokemons: Pokemon[];
-    error: string | null;
     loading: boolean;
     searchResult: Pokemon | null;
     searchInputRef: RefObject<TextInput>;
