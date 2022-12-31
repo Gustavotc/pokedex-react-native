@@ -18,7 +18,7 @@ const makeSut = () => {
   };
 };
 
-describe('Pokemon repository', () => {
+describe('Pokemon repository: get', () => {
   it('Should return an array of PokemonsResponse', async () => {
     const { sut, httpClientMock } = makeSut();
 
@@ -42,7 +42,7 @@ describe('Pokemon repository', () => {
 
     httpClientMock.request.mockResolvedValueOnce({
       statusCode: 200,
-      body: null,
+      body: { results: [] },
     });
 
     const response = await sut.get(0);
@@ -50,7 +50,7 @@ describe('Pokemon repository', () => {
     expect(response).toStrictEqual([]);
   });
 
-  it('Should return an empty array if status code is not 200', async () => {
+  it('Should throw an DataSourceError if status code is not 200', async () => {
     const { sut, httpClientMock } = makeSut();
 
     httpClientMock.request.mockResolvedValueOnce({
@@ -58,19 +58,11 @@ describe('Pokemon repository', () => {
       body: null,
     });
 
-    const response = await sut.get(0);
-
-    expect(response).toStrictEqual([]);
-  });
-
-  it('Should throw an DataSourceError if httpClient fails', async () => {
-    const { sut, httpClientMock } = makeSut();
-
-    httpClientMock.request.mockRejectedValueOnce(null);
-
     await expect(sut.get(0)).rejects.toBeInstanceOf(DataSourceError);
   });
+});
 
+describe('Pokemon repository: getById', () => {
   it('Should return all data about a specific pokemon on getById success', async () => {
     const { sut, httpClientMock, pokemonMapper } = makeSut();
 
@@ -86,12 +78,12 @@ describe('Pokemon repository', () => {
     expect(response).toStrictEqual(pokemonMapper.toDomain(responseMock));
   });
 
-  it('Should return null if getById returns 200 but no info', async () => {
+  it('Should return null if getById returns 404', async () => {
     const { sut, httpClientMock } = makeSut();
 
     httpClientMock.request.mockResolvedValueOnce({
-      statusCode: 200,
-      body: undefined,
+      statusCode: 404,
+      body: 'Not found',
     });
 
     const response = await sut.getById(1);
@@ -99,10 +91,13 @@ describe('Pokemon repository', () => {
     expect(response).toBeNull();
   });
 
-  it('Should throw a DataSourceError if getById fails', async () => {
+  it('Should throw an DataSourceError if status code is unknown', async () => {
     const { sut, httpClientMock } = makeSut();
 
-    httpClientMock.request.mockRejectedValueOnce(null);
+    httpClientMock.request.mockResolvedValueOnce({
+      statusCode: 500,
+      body: null,
+    });
 
     await expect(sut.getById(1)).rejects.toBeInstanceOf(DataSourceError);
   });

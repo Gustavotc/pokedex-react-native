@@ -3,10 +3,16 @@ import { renderHook, act } from '@testing-library/react-native';
 import { FetchPokemons } from '@/domain/usecases/FetchPokemons';
 import PokemonsPageViewModelImpl from '@/presentation/pages/pokemonsPage/PokemonsPageViewModelImpl';
 import { makePokemonMock } from '@/tests/mocks/entities/PokemonMock';
+import { SearchPokemon } from '@/domain/usecases';
+import { DataSourceError } from '@/domain/errors/DataSourceError';
 
 const makeSut = () => {
   const fetchPokemonsMock = mock<FetchPokemons>();
-  const sut = new PokemonsPageViewModelImpl(fetchPokemonsMock);
+  const searchPokemonsMock = mock<SearchPokemon>();
+  const sut = new PokemonsPageViewModelImpl(
+    fetchPokemonsMock,
+    searchPokemonsMock,
+  );
   return {
     sut,
     fetchPokemonsMock,
@@ -19,10 +25,11 @@ describe('PokemonsPageViewModel', () => {
 
     const hookMock = renderHook(() => sut.useViewModel());
 
-    const { pokemons, error } = hookMock.result.current;
+    const { pokemons, isSearching, searchResult } = hookMock.result.current;
 
     expect(pokemons).toStrictEqual([]);
-    expect(error).toBe(null);
+    expect(isSearching).toBeFalsy();
+    expect(searchResult).toBeNull();
   });
 
   it('Should fetch pokemons and update pokemons array', async () => {
@@ -43,13 +50,12 @@ describe('PokemonsPageViewModel', () => {
     });
 
     expect(hookMock.result.current.pokemons.length).toBe(3);
-    expect(hookMock.result.current.error).toBe(null);
   });
 
-  it('Should set error message when pokemons fetch fails', async () => {
+  it('Should show error message when pokemons fetch fails', async () => {
     const { sut, fetchPokemonsMock } = makeSut();
 
-    fetchPokemonsMock.execute.mockRejectedValueOnce(null);
+    fetchPokemonsMock.execute.mockRejectedValueOnce(new DataSourceError());
 
     const hookMock = renderHook(() => sut.useViewModel());
 
@@ -60,8 +66,5 @@ describe('PokemonsPageViewModel', () => {
     });
 
     expect(hookMock.result.current.pokemons).toStrictEqual([]);
-    expect(hookMock.result.current.error).toBe(
-      'Something went wrong, please try again',
-    );
   });
 });
