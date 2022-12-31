@@ -2,11 +2,14 @@
 import React from 'react';
 import { registerRootComponent } from 'expo';
 import { RootSiblingParent } from 'react-native-root-siblings';
-import { makePokemonsPage } from '@/main/factories/pages/PokemonsPageFactory';
+import Routes from './presentation/routes/Routes';
 
 const App: React.FC = () => {
-  const Children = makePokemonsPage();
-  return <RootSiblingParent>{Children}</RootSiblingParent>;
+  return (
+    <RootSiblingParent>
+      <Routes />
+    </RootSiblingParent>
+  );
 };
 
 export default registerRootComponent(App);

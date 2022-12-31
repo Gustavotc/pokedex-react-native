@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const CardContainer = styled.View<{ color: string }>`
+export const CardContainer = styled.TouchableOpacity<{ color: string }>`
   background-color: ${({ color }) => color};
   height: 200px;
   width: 100%;

@@ -6,18 +6,28 @@ import {
   ListRenderItem,
   View,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack/lib/typescript/src/types';
 import { PokemonsPageViewModel } from '@/presentation/viewModel';
 
 import { Container, TitleText } from './Styles';
 import { Pokemon } from '@/domain/entities';
 import { SearchBar } from '@/presentation/components';
 import { PokemonCard, NoPokemonFound, LargePokemonCard } from './components';
+import { StackRoutesParamsList } from '@/presentation/routes/Stack.routes';
 
 type Props = {
   viewModel: PokemonsPageViewModel;
 };
 
+type NavigationProps = NativeStackNavigationProp<
+  StackRoutesParamsList,
+  'PokemonDetailsPage'
+>;
+
 const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
+  const navigation = useNavigation<NavigationProps>();
+
   const {
     pokemons,
     loading,
@@ -43,7 +53,14 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
   };
 
   const renderItem: ListRenderItem<Pokemon> = ({ item }) => {
-    return <PokemonCard pokemon={item} />;
+    return (
+      <PokemonCard
+        pokemon={item}
+        onPress={() =>
+          navigation.navigate('PokemonDetailsPage', { id: item.id })
+        }
+      />
+    );
   };
 
   const showMainLoading =
@@ -80,7 +97,12 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
       )}
 
       {isSearching && searchResult && (
-        <LargePokemonCard pokemon={searchResult} />
+        <LargePokemonCard
+          pokemon={searchResult}
+          onPress={() =>
+            navigation.navigate('PokemonDetailsPage', { id: searchResult.id })
+          }
+        />
       )}
 
       {isSearching && !searchResult && !loading && <NoPokemonFound />}

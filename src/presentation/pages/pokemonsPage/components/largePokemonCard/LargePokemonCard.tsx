@@ -16,11 +16,16 @@ import PokeBallSvg from '../../../../../../assets/images/PokeBallSvg.svg';
 
 type Props = {
   pokemon: Pokemon;
+  onPress: () => void;
 };
 
-export const LargePokemonCard: React.FC<Props> = ({ pokemon }) => {
+export const LargePokemonCard: React.FC<Props> = ({ pokemon, onPress }) => {
   return (
-    <CardContainer color={PokemonTypeColorEnum[pokemon.types[0]]}>
+    <CardContainer
+      color={PokemonTypeColorEnum[pokemon.types[0]]}
+      onPress={onPress}
+      activeOpacity={0.8}
+    >
       <NameRow>
         <PokemonName>{pokemon.name}</PokemonName>
         <IndexText>{`#${pokemon.id}`}</IndexText>
