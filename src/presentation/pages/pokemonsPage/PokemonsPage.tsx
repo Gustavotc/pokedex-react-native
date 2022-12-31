@@ -57,7 +57,7 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
       <PokemonCard
         pokemon={item}
         onPress={() =>
-          navigation.navigate('PokemonDetailsPage', { id: item.id })
+          navigation.navigate('PokemonDetailsPage', { pokemonName: item.name })
         }
       />
     );
@@ -100,7 +100,9 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
         <LargePokemonCard
           pokemon={searchResult}
           onPress={() =>
-            navigation.navigate('PokemonDetailsPage', { id: searchResult.id })
+            navigation.navigate('PokemonDetailsPage', {
+              pokemonName: searchResult.name,
+            })
           }
         />
       )}

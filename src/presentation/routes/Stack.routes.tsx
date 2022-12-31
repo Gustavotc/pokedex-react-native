@@ -1,11 +1,13 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { MakePokemonsPage } from '@/main/factories/pages/PokemonsPageFactory';
-import PokemonDetailsPage from '../pages/pokemonDetailsPage/PokemonDetailsPage';
+import {
+  MakePokemonsPage,
+  MakePokemonDetailsPage,
+} from '@/main/factories/pages';
 
 export type StackRoutesParamsList = {
   PokemonsPage: undefined;
-  PokemonDetailsPage: { id: number | string };
+  PokemonDetailsPage: { pokemonName: string };
 };
 
 const Stack = createNativeStackNavigator<StackRoutesParamsList>();
@@ -14,7 +16,10 @@ const StackRoutes: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="PokemonsPage" component={MakePokemonsPage} />
-      <Stack.Screen name="PokemonDetailsPage" component={PokemonDetailsPage} />
+      <Stack.Screen
+        name="PokemonDetailsPage"
+        component={MakePokemonDetailsPage}
+      />
     </Stack.Navigator>
   );
 };
