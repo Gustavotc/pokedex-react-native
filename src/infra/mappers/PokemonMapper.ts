@@ -29,6 +29,7 @@ export class PokemonMapper implements DomainMapper<Pokemon> {
       weight: json.weight,
       stats: this.mapStats(json.stats),
       types: this.mapTypes(json.types),
+      specie: null,
     };
   }
 }

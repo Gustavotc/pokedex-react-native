@@ -1,3 +1,5 @@
+import { PokemonType } from '@/domain/entities';
+
 export type PokemonStatsJson = {
   base_stat: number;
   effort: number;
@@ -10,7 +12,7 @@ export type PokemonStatsJson = {
 export type PokemonTypesJson = {
   slot: number;
   type: {
-    name: string;
+    name: PokemonType;
     url: string;
   };
 }[];

@@ -1,4 +1,4 @@
-import { PokemonType } from '.';
+import { PokemonType, Specie } from '.';
 
 export type Pokemon = {
   id: number;
@@ -8,4 +8,5 @@ export type Pokemon = {
   weight: number;
   stats: { name: string; baseStat: number }[];
   types: PokemonType[];
+  specie: Specie | null;
 };
