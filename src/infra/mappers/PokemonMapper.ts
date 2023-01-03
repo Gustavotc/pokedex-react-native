@@ -34,7 +34,9 @@ export class PokemonMapper implements DomainMapper<Pokemon> {
     return {
       id: json.id,
       name: json.name,
-      imageUrl: json.sprites.other.dream_world.front_default,
+      imageUrl:
+        json.sprites.other.dream_world.front_default ??
+        json.sprites.other['official-artwork'].front_default,
       height: json.height,
       weight: json.weight,
       stats: this.mapStats(json.stats),

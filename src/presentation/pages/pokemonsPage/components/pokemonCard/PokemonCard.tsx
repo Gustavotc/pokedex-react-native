@@ -15,6 +15,7 @@ import { PokemonTypeColorEnum } from '@/main/utils/PokemonTypeEnum';
 import { TypeIcon } from '@/presentation/components';
 
 import PokeBallSvg from '../../../../../../assets/images/PokeBallSvg.svg';
+import PokemonImage from '@/presentation/pages/pokemonDetailsPage/components/pokemonImage/PokemonImage';
 
 type Props = {
   pokemon: Pokemon;
@@ -38,12 +39,13 @@ export const PokemonCard: React.FC<Props> = ({ pokemon, onPress }) => {
         style={{ position: 'absolute', bottom: -16, right: -16 }}
         color="#ffffff40"
       />
-      <SvgUri
-        uri={pokemon.imageUrl}
+      <PokemonImage
+        imageUri={pokemon.imageUrl}
         height={70}
         width={70}
         style={{ position: 'absolute', bottom: 8, right: 4 }}
       />
+
       {pokemon.types.map(type => (
         <StatusContainer key={type}>
           <TypeText>{type}</TypeText>

@@ -18,6 +18,7 @@ import { PokemonTypeColorEnum } from '@/main/utils/PokemonTypeEnum';
 import InfoText from './components/infoText/InfoText';
 import { TypeIcon } from '@/presentation/components';
 import { PokemonType } from '@/domain/entities';
+import PokemonImage from './components/pokemonImage/PokemonImage';
 
 type PokemonDetailsPageProps = RouteProp<
   StackRoutesParamsList,
@@ -53,19 +54,24 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
       <Header color={PokemonTypeColorEnum[pokemon?.types[0] ?? 'normal']}>
         <TopBar title={pokemonName} />
       </Header>
-      <SvgUri
-        uri={pokemon?.imageUrl ?? null}
-        height="35%"
-        width="80%"
-        style={{
-          position: 'absolute',
-          top: 100,
-          left: '10%',
-          zIndex: 1,
-        }}
-      />
+      {pokemon?.imageUrl && (
+        <PokemonImage
+          imageUri={pokemon.imageUrl}
+          height="35%"
+          width="80%"
+          style={{
+            position: 'absolute',
+            top: 100,
+            left: '10%',
+            zIndex: 1,
+          }}
+        />
+      )}
+
       <InfoContainer>
-        <PokemonDescription>{pokemon?.specie?.description}</PokemonDescription>
+        <PokemonDescription>
+          {pokemon?.specie?.description ?? 'No description found'}
+        </PokemonDescription>
         <InfoText label="Category">
           {pokemon?.specie?.specie.replace('Pokémon', '') ??
             'no category found'}

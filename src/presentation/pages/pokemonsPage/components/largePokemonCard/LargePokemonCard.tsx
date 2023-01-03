@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 import { PokemonTypeColorEnum } from '@/main/utils/PokemonTypeEnum';
 import { TypeIcon } from '@/presentation/components';
@@ -13,6 +14,7 @@ import {
 import { Pokemon } from '@/domain/entities';
 
 import PokeBallSvg from '../../../../../../assets/images/PokeBallSvg.svg';
+import PokemonImage from '@/presentation/pages/pokemonDetailsPage/components/pokemonImage/PokemonImage';
 
 type Props = {
   pokemon: Pokemon;
@@ -30,18 +32,20 @@ export const LargePokemonCard: React.FC<Props> = ({ pokemon, onPress }) => {
         <PokemonName>{pokemon.name}</PokemonName>
         <IndexText>{`#${pokemon.id}`}</IndexText>
       </NameRow>
+
       <PokeBallSvg
         height={150}
         width={150}
         style={{ position: 'absolute', bottom: -16, right: -16 }}
         color="#ffffff40"
       />
-      <SvgUri
-        uri={pokemon.imageUrl}
+      <PokemonImage
+        imageUri={pokemon.imageUrl}
         height={180}
         width={180}
         style={{ position: 'absolute', bottom: 4, right: 4 }}
       />
+
       {pokemon.types.map(type => (
         <StatusContainer key={type}>
           <TypeText>{type}</TypeText>
