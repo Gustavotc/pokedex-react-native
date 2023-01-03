@@ -22,11 +22,11 @@ import Rock from '../../../../assets/images/pokemonTypes/Rock.svg';
 import Steel from '../../../../assets/images/pokemonTypes/Steel.svg';
 import Water from '../../../../assets/images/pokemonTypes/Water.svg';
 
-type Props = {
+interface Props {
   type: PokemonType;
   iconSize?: number;
   containerSize?: number;
-};
+}
 
 export const TypeIcon: React.FC<Props> = ({
   type,

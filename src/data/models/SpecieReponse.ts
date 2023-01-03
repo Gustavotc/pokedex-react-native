@@ -21,7 +21,7 @@ export type SpecieResponse = {
   };
   flavor_text_entries: FlavorTextResponse[];
   genera: GeneraResponse[];
-  habitat: {
+  habitat?: {
     name: string;
   };
 };

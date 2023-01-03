@@ -1,4 +1,5 @@
 import {
+  PokemonAbilitiesJson,
   PokemonResponse,
   PokemonStatsJson,
   PokemonTypesJson,
@@ -20,6 +21,15 @@ export class PokemonMapper implements DomainMapper<Pokemon> {
     return typesJson.map(type => type.type.name);
   }
 
+  private mapAbilities(abilitiesJson: PokemonAbilitiesJson) {
+    return abilitiesJson.map(ability => {
+      return {
+        name: ability.ability.name,
+        isHidden: ability.is_hidden,
+      };
+    });
+  }
+
   toDomain(json: PokemonResponse): Pokemon {
     return {
       id: json.id,
@@ -30,6 +40,7 @@ export class PokemonMapper implements DomainMapper<Pokemon> {
       stats: this.mapStats(json.stats),
       types: this.mapTypes(json.types),
       specie: null,
+      abilities: this.mapAbilities(json.abilities),
     };
   }
 }

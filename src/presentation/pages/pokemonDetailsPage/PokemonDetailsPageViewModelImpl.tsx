@@ -35,10 +35,24 @@ export default class PokemonDetailsPageViewModelImpl
       }
     };
 
+    const getPokemonAbilities = () => {
+      if (!pokemon?.abilities) return '';
+
+      let abilities = '';
+      pokemon.abilities.forEach((ability, index) => {
+        let abilityText = ability.name;
+        if (ability.isHidden) abilityText += ' (hidden)';
+        const separator = index === pokemon.abilities.length - 1 ? '' : ',';
+        abilities = abilities.concat(`${abilityText}${separator} `);
+      });
+      return abilities;
+    };
+
     return {
       pokemon,
       loading,
       init,
+      getPokemonAbilities,
     };
   }
 }

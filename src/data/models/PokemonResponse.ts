@@ -17,6 +17,13 @@ export type PokemonTypesJson = {
   };
 }[];
 
+export type PokemonAbilitiesJson = {
+  ability: {
+    name: string;
+  };
+  is_hidden: boolean;
+}[];
+
 export type PokemonResponse = {
   id: number;
   name: string;
@@ -31,4 +38,5 @@ export type PokemonResponse = {
   };
   stats: PokemonStatsJson;
   types: PokemonTypesJson;
+  abilities: PokemonAbilitiesJson;
 };

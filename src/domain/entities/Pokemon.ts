@@ -9,4 +9,8 @@ export type Pokemon = {
   stats: { name: string; baseStat: number }[];
   types: PokemonType[];
   specie: Specie | null;
+  abilities: {
+    name: string;
+    isHidden: boolean;
+  }[];
 };

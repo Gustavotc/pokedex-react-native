@@ -5,5 +5,6 @@ export type PokemonDetailsPageViewModel = {
     pokemon: Pokemon | null;
     loading: boolean;
     init: (id: string | number) => Promise<void>;
+    getPokemonAbilities: () => string;
   };
 };
