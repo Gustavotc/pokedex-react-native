@@ -9,7 +9,12 @@ type Props = {
   style?: StyleProp<ImageStyle>;
 };
 
-const PokemonImage: React.FC<Props> = ({ imageUri, height, width, style }) => {
+export const PokemonImage: React.FC<Props> = ({
+  imageUri,
+  height,
+  width,
+  style,
+}) => {
   const renderImage = () => {
     if (imageUri.includes('svg')) {
       return (
@@ -24,5 +29,3 @@ const PokemonImage: React.FC<Props> = ({ imageUri, height, width, style }) => {
 
   return renderImage();
 };
-
-export default PokemonImage;

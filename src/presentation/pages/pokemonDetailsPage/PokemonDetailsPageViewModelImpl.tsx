@@ -16,6 +16,9 @@ export default class PokemonDetailsPageViewModelImpl
   useViewModel() {
     const [pokemon, setPokemon] = useState<Pokemon | null>(null);
     const [loading, setLoading] = useState(false);
+    const [selectedPage, setSelectedPage] = useState<
+      'About' | 'Stats' | 'Evolution'
+    >('About');
 
     const init = async (id: string | number) => {
       try {
@@ -51,8 +54,10 @@ export default class PokemonDetailsPageViewModelImpl
     return {
       pokemon,
       loading,
+      selectedPage,
       init,
       getPokemonAbilities,
+      setSelectedPage,
     };
   }
 }

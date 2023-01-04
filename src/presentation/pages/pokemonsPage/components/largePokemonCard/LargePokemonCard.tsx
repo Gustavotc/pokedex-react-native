@@ -1,8 +1,6 @@
 import React from 'react';
-import { Image } from 'react-native';
-import { SvgUri } from 'react-native-svg';
 import { PokemonTypeColorEnum } from '@/main/utils/PokemonTypeEnum';
-import { TypeIcon } from '@/presentation/components';
+import { TypeIcon, PokemonImage } from '@/presentation/components';
 import {
   CardContainer,
   NameRow,
@@ -14,7 +12,6 @@ import {
 import { Pokemon } from '@/domain/entities';
 
 import PokeBallSvg from '../../../../../../assets/images/PokeBallSvg.svg';
-import PokemonImage from '@/presentation/pages/pokemonDetailsPage/components/pokemonImage/PokemonImage';
 
 type Props = {
   pokemon: Pokemon;
