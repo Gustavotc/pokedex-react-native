@@ -7,6 +7,7 @@ export const Container = styled.View`
 export const StatRow = styled.View`
   flex-direction: row;
   margin-bottom: 16px;
+  align-items: center;
 `;
 
 export const StatName = styled.Text`
