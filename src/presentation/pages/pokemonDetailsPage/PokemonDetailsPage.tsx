@@ -31,10 +31,12 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
     init,
     getPokemonAbilities,
     setSelectedPage,
+    fetchPokemonEvolutions,
   } = viewModel.useViewModel();
 
   useEffect(() => {
     init(pokemonName);
+    fetchPokemonEvolutions();
   }, []);
 
   const renderMenuOptions = () => {

@@ -2,7 +2,11 @@ import { useState } from 'react';
 import Toast from 'react-native-root-toast';
 import { Pokemon } from '@/domain/entities';
 import { PokemonDetailsPageViewModel } from '@/presentation/viewModel';
-import { FetchPokemonSpecie, SearchPokemon } from '@/domain/usecases';
+import {
+  FetchEvolutions,
+  FetchPokemonSpecie,
+  SearchPokemon,
+} from '@/domain/usecases';
 import { DataSourceError } from '@/domain/errors/DataSourceError';
 
 export default class PokemonDetailsPageViewModelImpl
@@ -11,6 +15,7 @@ export default class PokemonDetailsPageViewModelImpl
   constructor(
     private readonly searchPokemon: SearchPokemon,
     private readonly fetchPokemonSpecie: FetchPokemonSpecie,
+    private readonly fetchEvolutions: FetchEvolutions,
   ) {}
 
   useViewModel() {
@@ -51,6 +56,10 @@ export default class PokemonDetailsPageViewModelImpl
       return abilities;
     };
 
+    const fetchPokemonEvolutions = () => {
+      this.fetchEvolutions.execute(2);
+    };
+
     return {
       pokemon,
       loading,
@@ -58,6 +67,7 @@ export default class PokemonDetailsPageViewModelImpl
       init,
       getPokemonAbilities,
       setSelectedPage,
+      fetchPokemonEvolutions,
     };
   }
 }

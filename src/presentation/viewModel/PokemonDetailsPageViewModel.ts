@@ -8,5 +8,6 @@ export type PokemonDetailsPageViewModel = {
     init: (id: string | number) => Promise<void>;
     getPokemonAbilities: () => string;
     setSelectedPage: (page: 'About' | 'Stats' | 'Evolution') => void;
+    fetchPokemonEvolutions: () => void;
   };
 };

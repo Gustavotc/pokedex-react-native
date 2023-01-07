@@ -1,3 +1,4 @@
 export * from './PokemonResponse';
 export * from './PokemonsResponse';
-export * from './SpecieReponse';
+export * from './SpecieResponse';
+export * from './EvolutionResponse';
