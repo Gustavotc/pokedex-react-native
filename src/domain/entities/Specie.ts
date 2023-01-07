@@ -3,4 +3,5 @@ export type Specie = {
   description: string;
   specie: string;
   habitat: string | null;
+  evolutionId: number;
 };

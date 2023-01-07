@@ -34,6 +34,11 @@ export default class PokemonDetailsPageViewModelImpl
         if (pokemonResponse) {
           pokemonResponse.specie = pokemonSpecie;
           setPokemon(pokemonResponse);
+
+          const evolutions = await this.fetchEvolutions.execute(
+            pokemonSpecie?.evolutionId ?? 0,
+          );
+          console.log(evolutions);
         }
       } catch (error) {
         if (error instanceof DataSourceError) Toast.show(error.message);
@@ -56,8 +61,11 @@ export default class PokemonDetailsPageViewModelImpl
       return abilities;
     };
 
-    const fetchPokemonEvolutions = () => {
-      this.fetchEvolutions.execute(2);
+    const fetchPokemonEvolutions = async () => {
+      // const evolutions = await this.fetchEvolutions.execute(
+      //   pokemon?.specie?.evolutionId ?? 0,
+      // );
+      // console.log(evolutions);
     };
 
     return {

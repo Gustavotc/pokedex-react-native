@@ -24,4 +24,7 @@ export type SpecieResponse = {
   habitat?: {
     name: string;
   };
+  evolution_chain: {
+    url: string;
+  };
 };

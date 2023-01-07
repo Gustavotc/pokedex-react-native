@@ -3,6 +3,7 @@ import { HttpClient, HttpStatusCode } from '@/data/protocols/http';
 import { EvolutionRepository } from '@/data/protocols/repository';
 import { Evolution } from '@/domain/entities';
 import { DataSourceError } from '@/domain/errors/DataSourceError';
+import { UnexpectedError } from '@/domain/errors/UnexpectedError';
 import { EvolutionMapper } from '../mappers';
 
 export class EvolutionRepositoryImpl implements EvolutionRepository {
@@ -21,13 +22,12 @@ export class EvolutionRepositoryImpl implements EvolutionRepository {
       if (response.statusCode === HttpStatusCode.ok) {
         if (response.body) {
           const data = this.mapper.toDomain(response.body);
-          console.log(data);
           return data;
         }
         return [];
       }
+      throw new UnexpectedError();
     } catch (e) {
-      console.log(e);
       throw new DataSourceError();
     }
   }
