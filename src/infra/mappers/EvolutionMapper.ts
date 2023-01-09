@@ -21,8 +21,8 @@ export class EvolutionMapper implements DomainMapper<Evolution[]> {
           evolutions.push({
             name: data.evolves_to[i].species.name,
             minLevel: !data.evolves_to[i]
-              ? 1
-              : data.evolves_to[i].evolution_details[0].min_level,
+              ? 0
+              : data.evolves_to[i].evolution_details[0].min_level ?? 0,
             imageUrl: null,
           });
         }

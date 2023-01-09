@@ -1,6 +1,12 @@
 import { FetchEvolutionsImpl } from '@/data/usecases';
-import { makeEvolutionRepository } from '../repositories';
+import {
+  makeEvolutionRepository,
+  makePokemonRepository,
+} from '../repositories';
 
 export const makeFetchEvolution = () => {
-  return new FetchEvolutionsImpl(makeEvolutionRepository());
+  return new FetchEvolutionsImpl(
+    makeEvolutionRepository(),
+    makePokemonRepository(),
+  );
 };

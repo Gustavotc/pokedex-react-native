@@ -3,7 +3,6 @@ import { HttpClient, HttpStatusCode } from '@/data/protocols/http';
 import { EvolutionRepository } from '@/data/protocols/repository';
 import { Evolution } from '@/domain/entities';
 import { DataSourceError } from '@/domain/errors/DataSourceError';
-import { UnexpectedError } from '@/domain/errors/UnexpectedError';
 import { EvolutionMapper } from '../mappers';
 
 export class EvolutionRepositoryImpl implements EvolutionRepository {
@@ -13,22 +12,18 @@ export class EvolutionRepositoryImpl implements EvolutionRepository {
   ) {}
 
   async getEvolutions(id: number): Promise<Evolution[]> {
-    try {
-      const response = await this.httpClient.request<EvolutionResponse>({
-        method: 'get',
-        url: `https://pokeapi.co/api/v2/evolution-chain/${id}/`,
-      });
+    const response = await this.httpClient.request<EvolutionResponse>({
+      method: 'get',
+      url: `https://pokeapi.co/api/v2/evolution-chain/${id}/`,
+    });
 
-      if (response.statusCode === HttpStatusCode.ok) {
-        if (response.body) {
-          const data = this.mapper.toDomain(response.body);
-          return data;
-        }
-        return [];
+    if (response.statusCode === HttpStatusCode.ok) {
+      if (response.body) {
+        const data = this.mapper.toDomain(response.body);
+        return data;
       }
-      throw new UnexpectedError();
-    } catch (e) {
-      throw new DataSourceError();
+      return [];
     }
+    throw new DataSourceError();
   }
 }

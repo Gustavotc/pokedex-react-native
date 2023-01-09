@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Toast from 'react-native-root-toast';
-import { Pokemon } from '@/domain/entities';
+import { Evolution, Pokemon } from '@/domain/entities';
 import { PokemonDetailsPageViewModel } from '@/presentation/viewModel';
 import {
   FetchEvolutions,
@@ -24,6 +24,7 @@ export default class PokemonDetailsPageViewModelImpl
     const [selectedPage, setSelectedPage] = useState<
       'About' | 'Stats' | 'Evolution'
     >('About');
+    const evolutions = useRef<Evolution[]>([]);
 
     const init = async (id: string | number) => {
       try {
@@ -35,10 +36,9 @@ export default class PokemonDetailsPageViewModelImpl
           pokemonResponse.specie = pokemonSpecie;
           setPokemon(pokemonResponse);
 
-          const evolutions = await this.fetchEvolutions.execute(
+          evolutions.current = await this.fetchEvolutions.execute(
             pokemonSpecie?.evolutionId ?? 0,
           );
-          console.log(evolutions);
         }
       } catch (error) {
         if (error instanceof DataSourceError) Toast.show(error.message);
@@ -72,6 +72,7 @@ export default class PokemonDetailsPageViewModelImpl
       pokemon,
       loading,
       selectedPage,
+      evolutions: evolutions.current,
       init,
       getPokemonAbilities,
       setSelectedPage,

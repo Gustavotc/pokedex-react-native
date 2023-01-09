@@ -10,6 +10,7 @@ import MenuButton from './components/menuButton/MenuButton';
 import AboutSection from './components/aboutSection/AboutSection';
 import { PokemonImage } from '@/presentation/components';
 import StatsSection from './components/statsSection/StatsSection';
+import EvolutionSection from './components/evolutionSection/EvolutionSection';
 
 type PokemonDetailsPageProps = RouteProp<
   StackRoutesParamsList,
@@ -28,6 +29,7 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
     pokemon,
     loading,
     selectedPage,
+    evolutions,
     init,
     getPokemonAbilities,
     setSelectedPage,
@@ -91,6 +93,10 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
             stats={pokemon?.stats ?? []}
             color={PokemonTypeColorEnum[pokemon?.types[0] ?? 'normal']}
           />
+        )}
+
+        {selectedPage === 'Evolution' && (
+          <EvolutionSection evolutions={evolutions} />
         )}
       </InfoContainer>
     </Container>
