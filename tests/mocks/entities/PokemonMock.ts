@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { Pokemon } from '../../../src/domain/entities';
+import { makePokemonTypeMock } from './PokemonTypeMock';
+import { makeEspecieMock } from './SpecieMock';
 
 export const makePokemonMock = (): Pokemon => {
   return {
@@ -8,6 +10,17 @@ export const makePokemonMock = (): Pokemon => {
     imageUrl: faker.image.imageUrl(),
     height: faker.datatype.number(),
     weight: faker.datatype.number(),
-    stats: faker.word.adjective(),
+    stats: [
+      {
+        baseStat: faker.datatype.number(),
+        name: faker.word.adjective(),
+      },
+    ],
+    types: [makePokemonTypeMock(), makePokemonTypeMock()],
+    specie: makeEspecieMock(),
+    abilities: [
+      { name: faker.name.firstName(), isHidden: faker.datatype.boolean() },
+      { name: faker.name.firstName(), isHidden: faker.datatype.boolean() },
+    ],
   };
 };
