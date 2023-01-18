@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674007377855" clover="3.2.0">
-  <project timestamp="1674007377856" name="All files">
-    <metrics statements="324" coveredstatements="97" conditionals="155" coveredconditionals="21" methods="116" coveredmethods="33" elements="595" coveredelements="151" complexity="0" loc="324" ncloc="324" packages="35" files="78" classes="78"/>
+<coverage generated="1674086270447" clover="3.2.0">
+  <project timestamp="1674086270447" name="All files">
+    <metrics statements="324" coveredstatements="107" conditionals="155" coveredconditionals="28" methods="116" coveredmethods="41" elements="595" coveredelements="176" complexity="0" loc="324" ncloc="324" packages="35" files="78" classes="78"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="App.tsx" path="C:\Users\Gustavo\Desktop\pokedex\src\App.tsx">
@@ -94,8 +94,8 @@
       <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="DataSourceError.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\domain\errors\DataSourceError.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
       </file>
       <file name="UnexpectedError.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\domain\errors\UnexpectedError.ts">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -134,7 +134,7 @@
       </file>
     </package>
     <package name="src.infra.mappers">
-      <metrics statements="22" coveredstatements="6" conditionals="16" coveredconditionals="1" methods="14" coveredmethods="7"/>
+      <metrics statements="22" coveredstatements="11" conditionals="16" coveredconditionals="2" methods="14" coveredmethods="13"/>
       <file name="DomainMapper.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\mappers\DomainMapper.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
@@ -162,16 +162,16 @@
         <line num="34" count="3" type="stmt"/>
       </file>
       <file name="SpecieMapper.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\mappers\SpecieMapper.ts">
-        <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="6"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.infra.repositories">
-      <metrics statements="23" coveredstatements="11" conditionals="22" coveredconditionals="12" methods="7" coveredmethods="3"/>
+      <metrics statements="23" coveredstatements="16" conditionals="22" coveredconditionals="18" methods="7" coveredmethods="5"/>
       <file name="EvolutionRepositoryImpl.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\repositories\EvolutionRepositoryImpl.ts">
         <metrics statements="7" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="15" count="0" type="stmt"/>
@@ -197,12 +197,12 @@
         <line num="47" count="1" type="stmt"/>
       </file>
       <file name="SpecieRepositoryImpl.ts" path="C:\Users\Gustavo\Desktop\pokedex\src\infra\repositories\SpecieRepositoryImpl.ts">
-        <metrics statements="5" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="26" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="20" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.main.factories.http">

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -109,16 +109,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,7 +126,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,29 +144,29 @@ import { Specie } from '@/domain/entities';
 import { DomainMapper } from './DomainMapper';
 &nbsp;
 export class SpecieMapper implements DomainMapper&lt;Specie&gt; {
-<span class="fstat-no" title="function not covered" >  pr</span>ivate mapDescription(entries: FlavorTextResponse[]) {
-    const description = <span class="cstat-no" title="statement not covered" >entries.filter(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.language.name === 'en')</span>[0];</span>
-<span class="cstat-no" title="statement not covered" >    return description.flavor_text.replace(/[\n\r]/g, ' ');</span>
+  private mapDescription(entries: FlavorTextResponse[]) {
+    const description = entries.filter(item =&gt; item.language.name === 'en')[0];
+    return description.flavor_text.replace(/[\n\r]/g, ' ');
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  pr</span>ivate mapSpecie(genera: GeneraResponse[]) {
-<span class="cstat-no" title="statement not covered" >    return genera.filter(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.language.name === 'en')</span>[0].genus;</span>
+  private mapSpecie(genera: GeneraResponse[]) {
+    return genera.filter(item =&gt; item.language.name === 'en')[0].genus;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  pr</span>ivate mapEvolutionId(url: string) {
-<span class="cstat-no" title="statement not covered" >    return Number(</span>
+  private mapEvolutionId(url: string) {
+    return Number(
       url
         .split('https://pokeapi.co/api/v2/evolution-chain/')[1]
         .replace('/', ''),
     );
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  to</span>Domain(json: SpecieResponse): Specie {
-<span class="cstat-no" title="statement not covered" >    return {</span>
+  toDomain(json: SpecieResponse): Specie {
+    return {
       color: json.color.name,
       description: this.mapDescription(json.flavor_text_entries),
       specie: this.mapSpecie(json.genera),
-      habitat: json?.habitat?.name ?? null,
+      habitat: json?.habitat?.name ?? <span class="branch-1 cbranch-no" title="branch not covered" >null,</span>
       evolutionId: this.mapEvolutionId(json.evolution_chain.url),
     };
   }
@@ -178,7 +178,7 @@ export class SpecieMapper implements DomainMapper&lt;Specie&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-18T02:02:57.667Z
+                at 2023-01-18T23:57:50.245Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
