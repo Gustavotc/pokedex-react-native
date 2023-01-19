@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,19 +106,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { EvolutionResponse } from '@/data/models';
@@ -129,25 +129,25 @@ import { DataSourceError } from '@/domain/errors/DataSourceError';
 import { EvolutionMapper } from '../mappers';
 &nbsp;
 export class EvolutionRepositoryImpl implements EvolutionRepository {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(
+  constructor(
     private readonly httpClient: HttpClient,
     private readonly mapper: EvolutionMapper,
   ) {}
 &nbsp;
-<span class="fstat-no" title="function not covered" >  as</span>ync getEvolutions(id: number): Promise&lt;Evolution[]&gt; {
-    const response = <span class="cstat-no" title="statement not covered" >await this.httpClient.request&lt;EvolutionResponse&gt;({</span>
+  async getEvolutions(id: number): Promise&lt;Evolution[]&gt; {
+    const response = await this.httpClient.request&lt;EvolutionResponse&gt;({
       method: 'get',
       url: `https://pokeapi.co/api/v2/evolution-chain/${id}/`,
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (response.statusCode === HttpStatusCode.ok) {</span>
-<span class="cstat-no" title="statement not covered" >      if (response.body) {</span>
-        const data = <span class="cstat-no" title="statement not covered" >this.mapper.toDomain(response.body);</span>
-<span class="cstat-no" title="statement not covered" >        return data;</span>
+    if (response.statusCode === HttpStatusCode.ok) {
+      if (response.body) {
+        const data = this.mapper.toDomain(response.body);
+        return data;
       }
-<span class="cstat-no" title="statement not covered" >      return [];</span>
+      return [];
     }
-<span class="cstat-no" title="statement not covered" >    throw new DataSourceError();</span>
+    throw new DataSourceError();
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -157,7 +157,7 @@ export class EvolutionRepositoryImpl implements EvolutionRepository {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-18T23:57:50.245Z
+                at 2023-01-19T00:23:29.672Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
