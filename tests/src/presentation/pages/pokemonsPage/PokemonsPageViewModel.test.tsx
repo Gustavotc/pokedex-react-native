@@ -67,4 +67,20 @@ describe('PokemonsPageViewModel', () => {
 
     expect(hookMock.result.current.pokemons).toStrictEqual([]);
   });
+
+  it('Should clear search value and result when handleClearSearch is called', async () => {
+    const { sut } = makeSut();
+
+    const hookMock = renderHook(() => sut.useViewModel());
+
+    const { handleClearSearch, searchInputRef } = hookMock.result.current;
+
+    await act(async () => {
+      await handleClearSearch();
+    });
+
+    expect(hookMock.result.current.searchResult).toBeNull();
+    expect(hookMock.result.current.isSearching).toBeFalsy();
+    expect(searchInputRef.current).toBeNull();
+  });
 });
