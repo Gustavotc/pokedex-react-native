@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack/lib/typescript/src/types';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PokemonsPageViewModel } from '@/presentation/viewModel';
 
 import { Container, TitleText } from './Styles';
@@ -27,6 +28,7 @@ type NavigationProps = NativeStackNavigationProp<
 
 const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
   const navigation = useNavigation<NavigationProps>();
+  const insets = useSafeAreaInsets();
 
   const {
     pokemons,
@@ -67,7 +69,7 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
     (isSearching && loading) || (pokemons.length === 0 && loading);
 
   return (
-    <Container>
+    <Container topInset={insets.top}>
       <TitleText>Pokédex</TitleText>
       <SearchBar
         placeholder="What Pokémon are you looking for?"

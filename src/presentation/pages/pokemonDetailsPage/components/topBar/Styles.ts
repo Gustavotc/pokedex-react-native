@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.View<{ topInset: number }>`
   width: 100%;
   height: 56px;
   flex-direction: row;
   position: absolute;
-  top: 32px;
+  top: ${({ topInset }) => topInset}px;
   left: 0px;
   align-items: center;
   padding: 0px 24px;
