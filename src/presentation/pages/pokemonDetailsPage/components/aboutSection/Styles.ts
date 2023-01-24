@@ -1,9 +1,7 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View``;
-
 export const PokemonDescription = styled.Text`
-  margin-top: 16px;
+  margin-top: 24px;
   margin-bottom: 16px;
 `;
 

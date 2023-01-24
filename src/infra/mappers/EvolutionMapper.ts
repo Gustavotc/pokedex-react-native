@@ -7,9 +7,9 @@ export class EvolutionMapper implements DomainMapper<Evolution[]> {
     const evolutions: Evolution[] = [];
     let data = json.chain;
 
+    if (data.evolves_to.length === 0) return evolutions;
     do {
       const numberOfEvolutions = data.evolves_to.length;
-
       evolutions.push({
         name: data.species.name,
         minLevel: data?.evolution_details[0]?.min_level ?? 0,

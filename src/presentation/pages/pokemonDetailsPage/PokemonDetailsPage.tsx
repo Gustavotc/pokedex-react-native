@@ -1,5 +1,6 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
+import Animated, { FadeIn } from 'react-native-reanimated';
 import { StackRoutesParamsList } from '@/presentation/routes/Stack.routes';
 
 import { Container, Header, InfoContainer, TabsContainer } from './Styles';

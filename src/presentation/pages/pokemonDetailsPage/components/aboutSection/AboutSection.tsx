@@ -1,9 +1,9 @@
 import React from 'react';
+import Animated, { SlideInDown } from 'react-native-reanimated';
 import { Pokemon, PokemonType } from '@/domain/entities';
 import InfoText from '../infoText/InfoText';
 
 import {
-  Container,
   PokemonDescription,
   TypesContainer,
   TypeTag,
@@ -27,7 +27,7 @@ const AboutSection: React.FC<Props> = ({ pokemon, getPokemonAbilities }) => {
   };
 
   return (
-    <Container>
+    <Animated.View entering={SlideInDown}>
       <PokemonDescription>
         {pokemon?.specie?.description ?? 'No description found'}
       </PokemonDescription>
@@ -43,7 +43,7 @@ const AboutSection: React.FC<Props> = ({ pokemon, getPokemonAbilities }) => {
       </InfoText>
       <InfoText label="Abilities">{getPokemonAbilities()}</InfoText>
       <TypesContainer>{pokemon?.types.map(renderType)}</TypesContainer>
-    </Container>
+    </Animated.View>
   );
 };
 

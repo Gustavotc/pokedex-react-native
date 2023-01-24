@@ -16,7 +16,7 @@ export const InfoContainer = styled.View`
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   padding: 16px;
-  padding-top: 48px;
+  padding-top: 64px;
   padding-bottom: 8px;
 `;
 
