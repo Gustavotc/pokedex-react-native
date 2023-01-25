@@ -35,10 +35,6 @@ export default class PokemonDetailsPageViewModelImpl
         if (pokemonResponse) {
           pokemonResponse.specie = pokemonSpecie;
           setPokemon(pokemonResponse);
-
-          evolutions.current = await this.fetchEvolutions.execute(
-            pokemonSpecie?.evolutionId ?? 0,
-          );
         }
       } catch (error) {
         if (error instanceof DataSourceError) Toast.show(error.message);
@@ -62,10 +58,18 @@ export default class PokemonDetailsPageViewModelImpl
     };
 
     const fetchPokemonEvolutions = async () => {
-      // const evolutions = await this.fetchEvolutions.execute(
-      //   pokemon?.specie?.evolutionId ?? 0,
-      // );
-      // console.log(evolutions);
+      if (!pokemon) return;
+      setLoading(true);
+      try {
+        evolutions.current = await this.fetchEvolutions.execute(
+          pokemon.specie?.evolutionId ?? 0,
+        );
+      } catch (error) {
+        if (error instanceof DataSourceError) Toast.show(error.message);
+        Toast.show('Pokemon evolutions fetch failed, please try again!');
+      } finally {
+        setLoading(false);
+      }
     };
 
     return {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Animated, { FadeIn, FlipInEasyY } from 'react-native-reanimated';
+import { ActivityIndicator } from 'react-native';
 import { Evolution } from '@/domain/entities';
 import { PokemonImage } from '@/presentation/components';
 
@@ -15,10 +16,11 @@ import {
 } from './Styles';
 
 type Props = {
+  loading: boolean;
   evolutions: Evolution[];
 };
 
-const EvolutionSection: React.FC<Props> = ({ evolutions }) => {
+const EvolutionSection: React.FC<Props> = ({ evolutions, loading }) => {
   const renderEvolution = (evolution: Evolution) => {
     return (
       <Animated.View key={evolution.name} entering={FlipInEasyY.duration(500)}>
@@ -38,6 +40,15 @@ const EvolutionSection: React.FC<Props> = ({ evolutions }) => {
       </Animated.View>
     );
   };
+
+  if (loading) {
+    return (
+      <ActivityIndicator
+        size="large"
+        style={{ alignSelf: 'center', flex: 1 }}
+      />
+    );
+  }
 
   if (evolutions.length === 0) {
     return (

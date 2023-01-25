@@ -1,6 +1,5 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import Animated, { FadeIn } from 'react-native-reanimated';
 import { StackRoutesParamsList } from '@/presentation/routes/Stack.routes';
 
 import { Container, Header, InfoContainer, TabsContainer } from './Styles';
@@ -39,8 +38,12 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
 
   useEffect(() => {
     init(pokemonName);
-    fetchPokemonEvolutions();
   }, []);
+
+  useEffect(() => {
+    if (selectedPage === 'Evolution' && evolutions.length === 0)
+      fetchPokemonEvolutions();
+  }, [selectedPage]);
 
   const renderMenuOptions = () => {
     const options: ['About', 'Stats', 'Evolution'] = [
@@ -97,7 +100,7 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
         )}
 
         {selectedPage === 'Evolution' && (
-          <EvolutionSection evolutions={evolutions} />
+          <EvolutionSection evolutions={evolutions} loading={loading} />
         )}
       </InfoContainer>
     </Container>
