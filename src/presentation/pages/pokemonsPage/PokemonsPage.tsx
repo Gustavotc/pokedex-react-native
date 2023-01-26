@@ -16,6 +16,7 @@ import { Pokemon } from '@/domain/entities';
 import { SearchBar } from '@/presentation/components';
 import { PokemonCard, NoPokemonFound, LargePokemonCard } from './components';
 import { StackRoutesParamsList } from '@/presentation/routes/Stack.routes';
+import PokemonsPageSkeleton from './components/pokemonsPageSkeleton/PokemonsPageSkeleton';
 
 type Props = {
   viewModel: PokemonsPageViewModel;
@@ -94,9 +95,7 @@ const PokemonsPage: React.FC<Props> = ({ viewModel }) => {
         />
       )}
 
-      {showMainLoading && (
-        <ActivityIndicator size="large" style={{ marginTop: 32 }} />
-      )}
+      {showMainLoading && <PokemonsPageSkeleton />}
 
       {isSearching && searchResult && (
         <LargePokemonCard

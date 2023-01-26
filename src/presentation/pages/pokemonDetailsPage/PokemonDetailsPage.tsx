@@ -1,5 +1,6 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
+import { View } from 'react-native';
 import { StackRoutesParamsList } from '@/presentation/routes/Stack.routes';
 
 import { Container, Header, InfoContainer, TabsContainer } from './Styles';
@@ -11,6 +12,7 @@ import AboutSection from './components/aboutSection/AboutSection';
 import { PokemonImage } from '@/presentation/components';
 import StatsSection from './components/statsSection/StatsSection';
 import EvolutionSection from './components/evolutionSection/EvolutionSection';
+import DetailsPageSkeleton from './components/detailsPageSkeleton/DetailsPageSkeleton';
 
 type PokemonDetailsPageProps = RouteProp<
   StackRoutesParamsList,
@@ -61,6 +63,14 @@ const PokemonDetailsPage: React.FC<Props> = ({ viewModel }) => {
       />
     ));
   };
+
+  if (!pokemon && loading) {
+    return (
+      <View style={{ flex: 1, backgroundColor: '#363636' }}>
+        <DetailsPageSkeleton />
+      </View>
+    );
+  }
 
   return (
     <Container>
