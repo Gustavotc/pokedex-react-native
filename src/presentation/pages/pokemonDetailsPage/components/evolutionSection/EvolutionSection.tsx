@@ -1,6 +1,5 @@
 import React from 'react';
 import Animated, { FadeIn, FlipInEasyY } from 'react-native-reanimated';
-import { ActivityIndicator } from 'react-native';
 import { Evolution } from '@/domain/entities';
 import { PokemonImage } from '@/presentation/components';
 
@@ -14,6 +13,7 @@ import {
   NoEvolutionText,
   NoEvolutionContainer,
 } from './Styles';
+import EvolutionSkeleton from './components/evolutionSkeleton/EvolutionSkeleton';
 
 type Props = {
   loading: boolean;
@@ -42,12 +42,7 @@ const EvolutionSection: React.FC<Props> = ({ evolutions, loading }) => {
   };
 
   if (loading) {
-    return (
-      <ActivityIndicator
-        size="large"
-        style={{ alignSelf: 'center', flex: 1 }}
-      />
-    );
+    return <EvolutionSkeleton />;
   }
 
   if (evolutions.length === 0) {
