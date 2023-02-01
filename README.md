@@ -56,6 +56,11 @@ yarn
 yarn start
 ```
 
+## 📚 References
+
+- Clean Architecture - A Craftsman's Guide to Software Structure and Design
+- https://www.behance.net/gallery/155301139/Daily-UI-Pokdex
+
 ## 📄 Licence
 
 This project is under MIT license. Check [LICENSE](LICENSE.md) file for more details.
