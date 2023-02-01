@@ -44,7 +44,7 @@ This is a **React Native** project, implemented using **Clean Architecture + MVV
 
 ## 🔖 Layout
 
-TODO: insert project images
+![PokedexBanner](.github/PokedexBanner.png?style=flat)
 
 ## 👨‍💻 Getting started
 
